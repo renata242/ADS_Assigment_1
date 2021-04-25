@@ -33,11 +33,9 @@ public class MyLinkedList<T>{
             this.data=data;
         }
     }
-
     public int getSize() {
         return size;
     }
-
     private MyNode getNode(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
@@ -49,17 +47,17 @@ public class MyLinkedList<T>{
         return node;
     }
 
-//    public T remove(int index) {
-//        T element = get(index);
-//        if (index == 0) {
-//            head = head.next;
-//        } else {
-//            MyNode node = getNode(index-1);
-//            node.next = node.next.next;
-//        }
-//        size--;
-//        return element;
-//    }
+    public T remove(int index) {
+        T element = get(index);
+        if (index == 0) {
+            head = head.next;
+        } else {
+            MyNode node = getNode(index-1);
+            node.next = node.next.next;
+        }
+        size--;
+        return element;
+    }
 
     public int find(T keyItem) {
         MyNode node = head;
@@ -71,11 +69,9 @@ public class MyLinkedList<T>{
         }
         return -1;
     }
-
-
+    
     public static void main(String[] args) {
         MyLinkedList<String> list = new MyLinkedList<>();
-
         list.add("Is");
         list.add("ocean");
         list.add("blue");
@@ -83,6 +79,11 @@ public class MyLinkedList<T>{
         for(int i=0; i< list.getSize(); i++){
             System.out.println(list.get(i)+" ");
         }
+
+        list.remove(1);
+
+        System.out.println(list);
+
     }
 }
 
