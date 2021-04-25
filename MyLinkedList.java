@@ -100,28 +100,33 @@ public class MyLinkedList<T> implements Iterable<T> {
     public static void main(String[] args) {
         MyLinkedList<String> list = new MyLinkedList<>();
 
-        list.add("Is");
+        list.add("Is");//add
         list.add("ocean");
         list.add("blue");
+        list.add("?");
 //        Scanner my = new Scanner(System.in);
 //        int n= my.nextInt();
 //        for(int i=0;i<n;i++){//add
 //            list.add(i);
 //        }
 
-        for (int i = 0; i < list.getSize(); i++) {
+        for (int i = 0; i < list.getSize(); i++) {//simple output
             System.out.println(list.get(i) + " ");
         }
-        System.out.println(list.find("Is"));
+        System.out.println("the index of word blue is:");
+        System.out.println(list.find("blue"));//find
 
-        list.remove(1);
-
-        System.out.println(list);
-
-        for (String item : list) {
-            System.out.println(item + " ");
+        list.remove(3);
+        System.out.println("the removed items' index is 3");
+        for (int i = 0; i < list.getSize(); i++) {//simple output
+            System.out.println(list.get(i) + " ");
         }
-        for(int i=list.getSize()-1;i>=0;i--){
+//
+//        for (String item : list) {
+//            System.out.println(item + " ");
+//        }
+        System.out.println("the reversed order is");
+        for(int i=list.getSize()-1;i>=0;i--){//reverse
             System.out.println(list.get(i)+" ");
         }
     }
