@@ -53,9 +53,19 @@ public class MyArrayList<T> implements Iterable<T>{
         size--;
         return element;
     }
+    public static<T> MyArrayList<T> reverse(MyArrayList<T> list)
+    {
+        MyArrayList<T> reverse = new MyArrayList<>(array.size());
+
+        for (int i = array.size() - 1; i >= 0; i--) {
+            reverse.add(list.get(i));
+        }
+        return reverse;
+    }
+
 
     @Override
-    public Iterator<T> iterator() {
+    public Iterator<T> iterator() {//no need for this part
         return new MyIterator();
     }
 
@@ -104,10 +114,8 @@ public class MyArrayList<T> implements Iterable<T>{
     //            System.out.println(item + " ");
     //        }
             System.out.println("the reversed order is");
-            Iterator<Integer> st=list.iterator();
-            while (st.hasNext()){
-                System.out.println(st.next());
-            }
+            MyArrayList<Integer> reverse = reverse(list);
+            System.out.println(reverse);
 
 //        for(int i=0; i<5; i++){
 //            list.add(i);
